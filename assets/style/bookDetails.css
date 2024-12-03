@@ -1,0 +1,53 @@
+@import url('./colors.css');
+
+
+.book-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    background-color: var(--brown-dark);
+}
+
+.book-details .back-button{
+    margin-top: 40px;
+    margin-left: 40px;
+    align-self: self-start;
+}
+
+.book-details .pop-up{
+    background-color: blanchedalmond;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 700px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.book-details img{
+    width: 100%;
+}
+
+.book-details .pre-next-buttons{
+    position:absolute;
+    top: 50%;
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-details .pre-next-buttons .next{
+   font-size: 50px;
+   border: 0px;
+   background-color: transparent;
+   text-decoration: none;
+} 
+
+.book-details .pre-next-buttons .previos{
+    font-size: 50px;
+    border: 0px;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+ } 

@@ -1,0 +1,24 @@
+@import url('./colors.css');
+
+.app-header{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background-color: var(--brown-very-dark-2);
+
+}
+
+
+.app-header nav a {
+    width: 150px;
+    border-right: solid var(--brown-very-light) 1px;
+    text-align: center;
+    display: inline-block;
+    color: var(--brown-very-light);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.app-header nav a.active{
+    color: var(--brown);
+}

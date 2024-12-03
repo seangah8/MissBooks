@@ -38,20 +38,26 @@ export function BookDetails(){
 
     return (
         <section className="book-details">
-            <button onClick={onBack}>Back</button>
+            <button className="back-button" onClick={onBack}>Back</button>
+            <div className="pop-up">
+                <div className="details">
+                    <h1 className="header">{book.title} (author: {book.author})</h1>
+                    <h1>{book.category}, {publishDateSimplify()}, {pageCountSimplify()}</h1>     
+                    <LongText txt={book.description}/>
+                    <h1>Price: {book.listPrice.amount +' '}
+                        {book.listPrice.isOnSale? ' , On Sale!':''}
+                    </h1>
+                </div>
 
-            <h1 className="header">{book.title} (author: {book.author})</h1>
-            <h1>{book.category}, {publishDateSimplify()}, {pageCountSimplify()}</h1>
-            <img src={book.coverImage}/>
-            <LongText txt={book.description}/>
-            <h1>Price: {book.listPrice.amount +' '}
-                {book.listPrice.isOnSale? 'On Sale!':'Not for sale right now..'}
-            </h1> {/* make it a sigh later */}
+                <img src={book.coverImage}/>
+
+            </div>
+            
 
             
-            <section>
-                <button><Link to={`/book/${book.prevBookId}`}>Prev Book</Link></button>
-                <button><Link to={`/book/${book.nextBookId}`}>Next Book</Link></button>
+            <section className="pre-next-buttons">
+                <button className="previos"><Link to={`/book/${book.prevBookId}`}>«</Link></button>
+                <button className="next"><Link to={`/book/${book.nextBookId}`}>»</Link></button>
             </section>
         </section>
     )

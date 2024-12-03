@@ -175,7 +175,7 @@ function _createDefultBooks() {
                     amount: utilService.getRandomIntInclusive(20, 300),
                     isOnSale: Math.random() > 0.7
                 },
-                coverImage: `/../assets/BooksImages/${Math.ceil(Math.random()*20)}.jpg` // temporary
+                coverImage: `../assets/BooksImages/${Math.ceil(Math.random()*20)}.jpg` // temporary
             }
             books.push(book)
         }
