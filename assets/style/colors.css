@@ -1,0 +1,11 @@
+
+:root {
+	--brown-very-light: rgb(255, 240, 217);
+    --brown-light: rgb(240, 215, 177);
+    --brown: rgb(197, 166, 119);
+    --brown-dark: rgb(176, 141, 89);
+    --brown-very-dark: rgb(152, 116, 61);
+    --brown-very-dark-2: rgb(91, 63, 21);
+
+    --onsale-sticker: rgb(222, 77, 67);
+}
