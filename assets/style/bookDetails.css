@@ -18,11 +18,11 @@
     font-size: 30px;
     background-color: transparent;
     border: none;
-    color: var(--brown-very-light);
+    color: var(--red-very-dark);
 }
 
 .book-details .back-button:hover{
-    color: var(--brown-light);
+    color: var(--red-dark);
 }
 
 .book-details .pop-up{
@@ -95,8 +95,8 @@
 
 .book-details .on-sale{
     position: absolute;
-    right: 225px;
-    top: 425px;
+    right: 450px;
+    top: 250px;
     color: var(--red-dark);
     font-size: 70px;
     transform: rotate(-15deg);

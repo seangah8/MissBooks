@@ -20,7 +20,7 @@
     background-color: var(--brown-dark);
     overflow: scroll;
     overflow-x: hidden;
-    height: 625px;
+    height: 640px;
     
 }
 
@@ -28,14 +28,14 @@
     align-items: center;
     justify-content: center;
     font-size: 40px;
-    color: var(--brown-very-dark-2);
+    color: var(--red-very-dark-2);
 }
 
 .book-list article{
     margin-top: 20px;
     position: relative;
     background-color: var(--brown-very-light);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
     width: 175px;
     height: 350px;
@@ -51,7 +51,7 @@
     text-align: center;
     margin-top: 0px;
     margin-bottom: 5px;
-    color: var(--brown-very-dark-2);
+    color: var(--red-very-dark);
     
     
 }
@@ -62,14 +62,14 @@
 
 .book-preview img{
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .book-preview .on-sale{
     position: absolute;
     display: grid;
     place-items: center;
-    background-color: var(--red);
+    background-color: var(--red-very-dark);
     border-radius: 50%;
     top: 0px;
     right: 10px;
@@ -82,7 +82,7 @@
 
 .book-preview .price{
    font-size: 28px;
-   color: var(--brown-dark);
+   color: var(--red-dark);
 }
 
 .book-list section{
@@ -98,7 +98,7 @@
     cursor: pointer;
     width: 100px;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     background-color: var(--brown);
     color: white;
 }
@@ -109,7 +109,7 @@
 }
 
 .book-list section button:hover{
-    background-color: var(--brown-dark);
+    background-color: var(--red-dark);
 }
 
 .book-filter{
@@ -119,6 +119,7 @@
     align-items: center;
     background-color: var(--brown);
     height: 575px;
+    border-radius: 2px;
 }
 
 .book-filter h1{
@@ -139,10 +140,10 @@
 .book-filter .category{
     width: 100%;
     background-color: var(--brown-very-light);
-    color: var(--brown-very-dark-2);
+    color: var(--red-very-dark);
     border: 0px;
     font-size: 15px;
-    border-radius: 5px;
+    border-radius: 2px;
     text-align: center;
 }
 
@@ -175,26 +176,27 @@
     width: 15px;
     height: 15px;
     border-radius: 3px;
-    accent-color: var(--brown);
 }
 
 .book-filter input[type="checkbox"]:checked{
-    accent-color: var(--brown-very-dark);
+    accent-color: var(--red-very-dark);
 }
 
 .book-filter input[type="range"]{
-    accent-color: var(--brown-very-dark-2);
+    accent-color: var(--red-very-dark);
 }
 
 .add-book-button{
+    cursor: pointer;
     height: 50px;
     border: 0px;
-    background-color: var(--brown-very-dark);
+    background-color: var(--red-very-dark);
     font-size: 20px;
+    border-radius: 2px;
 }
 
 .add-book-button:hover{
-    background-color: var(--brown-very-dark-2);
+    background-color: var(--red-very-dark-2);
 }
 
 .add-book-button a{

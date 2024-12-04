@@ -7,7 +7,11 @@
     --brown-very-dark: rgb(152, 116, 61);
     --brown-very-dark-2: rgb(91, 63, 21);
 
+    --red-very-light: rgb(253, 157, 151);
     --red-light: rgb(231, 107, 98);
     --red: rgb(222, 77, 67);
-    --red-dark: rgb(192, 55, 45);
+    --red-dark: rgb(180, 67, 59);
+    --red-very-dark: rgb(129, 51, 46);
+    --red-very-dark-2: rgb(96, 38, 34);
+
 }
