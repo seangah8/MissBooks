@@ -86,46 +86,106 @@ export function BookEdit() {
     return (
         <section className="book-edit">
 
-            <button onClick={onBack}>Back</button>
+            <button className="back-button" onClick={onBack}>« Back</button>
 
             <h1>{bookId ? 'Edit' : 'Add'} Book</h1>
-            <form onSubmit={onSaveBook}>
+            
+            <div className="pop-up">
+                <form onSubmit={onSaveBook}>
 
-                <label htmlFor="title">Title:</label>
-                <input onChange={handleChange} value={title} type="text" name="title" id="title" />
+                    <div>
+                        <label htmlFor="title">Title:</label>
+                        <input 
+                        onChange={handleChange} 
+                        value={title} 
+                        type="text" 
+                        name="title" 
+                        id="title" />
+                    </div>
 
-                <label htmlFor="category">Category: </label>
-                <select onChange={handleChange} value={category} name="category" id="category">
-                    {
-                        categories.map((category, key) =>
-                            <option key={key} value={`${category}`}>{category}</option>
-                        )
-                    }
-                </select>
+                    <div>
+                        <label htmlFor="category">Category: </label>
+                        <select 
+                        onChange={handleChange} 
+                        value={category} 
+                        name="category" 
+                        id="category">
+                            {
+                                categories.map((category, key) =>
+                                    <option key={key} value={`${category}`}>{category}</option>
+                                )
+                            }
+                        </select>
+                    </div>
 
+
+                    <div>
+                        <label htmlFor="description">Description:</label>
+                        <textarea 
+                        onChange={handleChange} 
+                        value={description} 
+                        type="text" 
+                        name="description" 
+                        id="description" />
+                    </div>
+                    
+                    <div>
+                        <label htmlFor="author">Author:</label>
+                        <input 
+                        onChange={handleChange} 
+                        value={author} 
+                        type="text" 
+                        name="author" 
+                        id="author" />
+                    </div>
+                    
+                    <div>
+                        <label htmlFor="published-year">Published Year:</label>
+                        <input 
+                        onChange={handleChange} 
+                        value={publishedYear} 
+                        type="number" 
+                        name="publishedYear" 
+                        id="published-year"
+                        onBlur={({ target }) => setBookToEdit(prev => 
+                        ({ ...prev, publishedYear: correctUnvalidYear(target.value) }))} />
+                    </div>
+                    
+                    <div>
+                        <label htmlFor="page-count">Page Count:</label>
+                        <input 
+                        onChange={handleChange} 
+                        value={pageCount} 
+                        type="number" 
+                        name="pageCount" 
+                        id="page-count" />
+                    </div>
+                    
+                    <div>
+                        <label htmlFor="amount">Amount:</label>
+                        <input 
+                        onChange={handleChange} 
+                        value={amount} 
+                        type="number" 
+                        name="amount" 
+                        id="amount" />
+                    </div>
+
+                    <div>
+                        <label htmlFor="on-sale">On Sale:</label>
+                        <input 
+                        onChange={handleChange} 
+                        checked={isOnSale} 
+                        type="checkbox" 
+                        name="isOnSale" 
+                        id="on-sale" />
+                    </div>
+                    
+                    <button>Save</button>
+                </form>
                 <img src={coverImage}/>
-
-                <label htmlFor="description">Description:</label>
-                <textarea onChange={handleChange} value={description} type="text" name="description" id="description" />
-
-                <label htmlFor="author">Author:</label>
-                <input onChange={handleChange} value={author} type="text" name="author" id="author" />
-
-                <label htmlFor="published-year">Published Year:</label>
-                <input onChange={handleChange} value={publishedYear} type="number" name="publishedYear" id="published-year"
-                    onBlur={({ target }) => setBookToEdit(prev => ({ ...prev, publishedYear: correctUnvalidYear(target.value) }))} />
-
-                <label htmlFor="page-count">Page Count:</label>
-                <input onChange={handleChange} value={pageCount} type="number" name="pageCount" id="page-count" />
-
-                <label htmlFor="amount">Amount:</label>
-                <input onChange={handleChange} value={amount} type="number" name="amount" id="amount" />
-
-                <label htmlFor="on-sale">On Sale:</label>
-                <input onChange={handleChange} checked={isOnSale} type="checkbox" name="isOnSale" id="on-sale" />
-
-                <button>Save</button>
-            </form>
+            </div>
+            
         </section>
     )
 }

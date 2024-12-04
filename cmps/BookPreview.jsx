@@ -1,4 +1,3 @@
-
 export function BookPreview({id, title, amount, onSale, coverImage}){
 
     return(

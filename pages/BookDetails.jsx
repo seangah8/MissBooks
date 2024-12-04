@@ -38,15 +38,17 @@ export function BookDetails(){
 
     return (
         <section className="book-details">
-            <button className="back-button" onClick={onBack}>Back</button>
+            <button className="back-button" onClick={onBack}>{`« Back`}</button>
             <div className="pop-up">
                 <div className="details">
-                    <h1 className="header">{book.title} (author: {book.author})</h1>
-                    <h1>{book.category}, {publishDateSimplify()}, {pageCountSimplify()}</h1>     
+                    <div className="header">
+                        <h1 className="title">{book.title}</h1>
+                        <h1 className="author"> author: {book.author}</h1>
+                    </div>
+                    <h1 className="second-header">{book.category} • {publishDateSimplify()} • {pageCountSimplify()}</h1>     
                     <LongText txt={book.description}/>
-                    <h1>Price: {book.listPrice.amount +' '}
-                        {book.listPrice.isOnSale? ' , On Sale!':''}
-                    </h1>
+                    <h1 className="price">Price: {book.listPrice.amount +'₪'}</h1>
+                    <h1 className="on-sale">{book.listPrice.isOnSale? 'On Sale!':''}</h1>
                 </div>
 
                 <img src={book.coverImage}/>

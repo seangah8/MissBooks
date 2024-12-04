@@ -11,18 +11,28 @@
 }
 
 .book-details .back-button{
-    margin-top: 40px;
-    margin-left: 40px;
+    cursor: pointer;
     align-self: self-start;
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    color: var(--brown-very-light);
+}
+
+.book-details .back-button:hover{
+    color: var(--brown-light);
 }
 
 .book-details .pop-up{
-    background-color: blanchedalmond;
+    background-color: var(--brown-very-light);
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 700px;
     border-radius: 10px;
     padding: 10px;
+    z-index: 1;
 }
 
 .book-details img{
@@ -37,17 +47,75 @@
     justify-content: space-between;
 }
 
-.book-details .pre-next-buttons .next{
-   font-size: 50px;
+.book-details .pre-next-buttons .next,
+.book-details .pre-next-buttons .previos{
+   font-size: 75px;
    border: 0px;
    background-color: transparent;
-   text-decoration: none;
 } 
 
-.book-details .pre-next-buttons .previos{
-    font-size: 50px;
-    border: 0px;
-    background-color: transparent;
-    color: white;
-    text-decoration: none;
- } 
+.book-details .pre-next-buttons .next a,
+.book-details .pre-next-buttons .previos a{
+   text-decoration: none;
+   color: var(--brown-very-light);
+} 
+
+.book-details .pre-next-buttons .next a:hover,
+.book-details .pre-next-buttons .previos a:hover{
+   color: var(--brown-light);
+} 
+
+.book-details .details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: var(--brown-very-dark-2);
+}
+
+.book-details .details .header{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+.book-details .details .title{
+    margin-top: 0px;
+    font-size: clamp(10px, 30px, 30px);
+    
+}
+
+.book-details .details .author{
+    margin-top: 0px;
+    margin-right: 5px;
+}
+
+.book-details .details .second-header{
+    margin-top: 0px;
+}
+
+.book-details .on-sale{
+    position: absolute;
+    right: 225px;
+    top: 425px;
+    color: var(--red-dark);
+    font-size: 70px;
+    transform: rotate(-15deg);
+
+}
+
+.book-details .price{
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.long-text{
+    cursor: pointer;
+    height: 225px;
+    overflow-y: scroll;
+    
+}
+
+.long-text span{
+    color: var(--red-dark);
+}
+

@@ -1,0 +1,53 @@
+@import url('./colors.css');
+
+
+.book-edit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    background-color: var(--brown-dark);
+}
+
+.book-edit .back-button{
+    cursor: pointer;
+    align-self: self-start;
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    color: var(--brown-very-light);
+}
+
+.book-edit .back-button:hover{
+    color: var(--brown-light);
+}
+
+.book-edit .pop-up{
+    background-color: var(--brown-very-light);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 700px;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1;
+}
+
+.book-edit img{
+    width: 100%;
+}
+
+.book-edit form{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: space-around;
+    color: var(--brown-very-dark-2);
+    padding: 10px;
+}
+
+.book-edit form input{
+    
+}

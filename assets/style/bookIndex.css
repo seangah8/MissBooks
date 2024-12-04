@@ -59,7 +59,7 @@
     position: absolute;
     display: grid;
     place-items: center;
-    background-color: var(--onsale-sticker);
+    background-color: var(--red);
     border-radius: 50%;
     top: 0px;
     right: 10px;
@@ -126,27 +126,10 @@
 }
 
 
-.book-filter .title{
-    width: 100%;
-    background-color: var(--brown-very-light);
-    color: var(--brown-very-dark-2);
-    border: 0px;
-    font-size: 15px;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.book-filter .author{
-    width: 100%;
-    background-color: var(--brown-very-light);
-    color: var(--brown-very-dark-2);
-    border: 0px;
-    font-size: 15px;
-    border-radius: 5px;
-    text-align: center;
-}
-
+.book-filter .title,
+.book-filter .author,
 .book-filter .category{
+    width: 100%;
     background-color: var(--brown-very-light);
     color: var(--brown-very-dark-2);
     border: 0px;
@@ -156,18 +139,8 @@
 }
 
 
-.book-filter .book-age-filter{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.book-filter .book-page-amount-filter{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+.book-filter .book-age-filter,
+.book-filter .book-page-amount-filter,
 .book-filter .max-amount{
     display: flex;
     flex-direction: column;
