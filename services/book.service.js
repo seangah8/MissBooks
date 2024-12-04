@@ -112,7 +112,7 @@ function getEmptyBook(){
         pageCount: 0,
         category: '',
         listPrice: {amount: 0, isOnSale: false},
-        coverImage: ''
+        coverImage: `./assets/BooksImages/${Math.ceil(Math.random()*20)}.jpg`
     }
 }
 

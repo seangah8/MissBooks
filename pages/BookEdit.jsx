@@ -88,10 +88,12 @@ export function BookEdit() {
 
             <button className="back-button" onClick={onBack}>« Back</button>
 
-            <h1>{bookId ? 'Edit' : 'Add'} Book</h1>
+            
             
             <div className="pop-up">
                 <form onSubmit={onSaveBook}>
+
+                    <h1 className="edit-add-title">{bookId ? 'Edit' : 'Add'} Book</h1>
 
                     <div>
                         <label htmlFor="title">Title:</label>
@@ -100,7 +102,8 @@ export function BookEdit() {
                         value={title} 
                         type="text" 
                         name="title" 
-                        id="title" />
+                        id="title" 
+                        className="title"/>
                     </div>
 
                     <div>
@@ -109,7 +112,8 @@ export function BookEdit() {
                         onChange={handleChange} 
                         value={category} 
                         name="category" 
-                        id="category">
+                        id="category"
+                        className="category">
                             {
                                 categories.map((category, key) =>
                                     <option key={key} value={`${category}`}>{category}</option>
@@ -119,7 +123,7 @@ export function BookEdit() {
                     </div>
 
 
-                    <div>
+                    <div className="description-textarea">
                         <label htmlFor="description">Description:</label>
                         <textarea 
                         onChange={handleChange} 
@@ -136,7 +140,8 @@ export function BookEdit() {
                         value={author} 
                         type="text" 
                         name="author" 
-                        id="author" />
+                        id="author" 
+                        className="author"/>
                     </div>
                     
                     <div>
@@ -147,6 +152,7 @@ export function BookEdit() {
                         type="number" 
                         name="publishedYear" 
                         id="published-year"
+                        className="published-year"
                         onBlur={({ target }) => setBookToEdit(prev => 
                         ({ ...prev, publishedYear: correctUnvalidYear(target.value) }))} />
                     </div>
@@ -158,17 +164,19 @@ export function BookEdit() {
                         value={pageCount} 
                         type="number" 
                         name="pageCount" 
-                        id="page-count" />
+                        id="page-count" 
+                        className="page-count"/>
                     </div>
                     
                     <div>
-                        <label htmlFor="amount">Amount:</label>
+                        <label htmlFor="amount">Price:</label>
                         <input 
                         onChange={handleChange} 
                         value={amount} 
                         type="number" 
                         name="amount" 
-                        id="amount" />
+                        id="amount" 
+                        className="amount"/>
                     </div>
 
                     <div>
@@ -181,7 +189,7 @@ export function BookEdit() {
                         id="on-sale" />
                     </div>
                     
-                    <button>Save</button>
+                    <button className="save-button">Save</button>
                 </form>
                 <img src={coverImage}/>
             </div>

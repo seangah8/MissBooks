@@ -48,6 +48,61 @@
     padding: 10px;
 }
 
-.book-edit form input{
-    
+.book-edit .edit-add-title{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 30px;
+    color: var(--brown-very-dark-2);
+    align-self: center;
+}
+
+.book-edit .title,
+.book-edit .author,
+.book-edit .category,
+.book-edit .published-year,
+.book-edit .page-count,
+.book-edit .amount{
+    margin-left: 10px;
+    background-color: var(--brown-light);
+    color: var(--brown-very-dark-2);
+    border: 0px;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+
+}
+
+.book-edit input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    accent-color: var(--brown);
+}
+
+.book-edit .description-textarea{
+    display: flex;
+    align-items: center;
+}
+
+.book-edit textarea{
+    margin-left: 10px;
+    resize: none;
+    width: 230px;
+    height: 100px;
+    background-color: var(--brown-light);
+    color: var(--brown-very-dark-2);
+}
+
+.book-edit .save-button{
+    cursor: pointer;
+    align-self: center;
+    width: 150px;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    color: var(--brown-very-dark-2);
+}
+
+.book-edit .save-button:hover{
+    color: var(--brown-dark);
 }
