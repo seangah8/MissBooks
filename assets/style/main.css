@@ -3,3 +3,7 @@
 @import url('./appHeader.css');
 @import url('./bookDetails.css');
 @import url('./bookEdit.css');
+
+body{
+    overflow: hidden;
+}

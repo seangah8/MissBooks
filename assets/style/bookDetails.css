@@ -111,7 +111,7 @@
 .long-text{
     cursor: pointer;
     height: 225px;
-    overflow-y: scroll;
+    overflow-y: auto;
     
 }
 

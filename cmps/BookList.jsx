@@ -6,13 +6,13 @@ export function BookList({ books, onRemoveBook }){
 
 
     if(!books.length){
-        return <h1>List empty, add more books to the list!</h1>
+        return <h1 className="book-list empty-list">List empty, add more books to the list!</h1>
     }
 
     return(
         <ul className="book-list">
             {
-                books.map((book,key) =>
+                books.map((book) =>
                 <li key={book.id}>
                     <article>
                         <BookPreview id={book.id}
