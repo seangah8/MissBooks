@@ -1,5 +1,6 @@
 
 @import url('./colors.css');
+@import url('./scrollBar.css');
 @import url('./bookIndex.css');
 @import url('./appHeader.css');
 @import url('./bookDetails.css');
@@ -12,3 +13,5 @@ body{
     margin-left: 0px;
     margin-right: 0px;
 }
+
+  

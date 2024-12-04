@@ -96,7 +96,7 @@
 .book-details .on-sale{
     position: absolute;
     right: 450px;
-    top: 250px;
+    top: 425px;
     color: var(--red-dark);
     font-size: 70px;
     transform: rotate(-15deg);

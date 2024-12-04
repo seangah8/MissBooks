@@ -1,0 +1,18 @@
+@import url('./colors.css');
+
+
+::-webkit-scrollbar {
+    width: 10px; 
+}
+
+
+::-webkit-scrollbar-track {
+    background: var(--brown-very-dark);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--red-very-dark); 
+    border-radius: 10px;
+}
+

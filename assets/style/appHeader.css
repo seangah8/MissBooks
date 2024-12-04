@@ -20,5 +20,5 @@
 }
 
 .app-header nav a.active{
-    color: var(--brown);
+    color: var(--brown-light);
 }
