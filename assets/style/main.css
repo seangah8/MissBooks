@@ -1,10 +1,16 @@
 
 @import url('./colors.css');
+@import url('./backgrounds.css');
+@import url('fonts.css');
 @import url('./scrollBar.css');
 @import url('./bookIndex.css');
 @import url('./appHeader.css');
 @import url('./bookDetails.css');
 @import url('./bookEdit.css');
+
+:root{
+    --defult-font: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 body{
     overflow: hidden;
@@ -12,6 +18,10 @@ body{
     margin-top: 0px;
     margin-left: 0px;
     margin-right: 0px;
+    font-family: var(--defult-font);
 }
 
+input, textarea, select, button {
+    font-family: var(--defult-font);
+}
   
