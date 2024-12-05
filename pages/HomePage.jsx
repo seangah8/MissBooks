@@ -5,6 +5,14 @@ const { Link } = ReactRouterDOM
 export function HomePage() {
     return (
         <section className="home">
+
+        <video
+            autoPlay
+            loop
+            muted
+            className="background-video"
+            src="https://videos.pexels.com/video-files/9568942/9568942-uhd_2732_1440_25fps.mp4">
+        </video>
             
 
             <div className="welcome">
