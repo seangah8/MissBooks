@@ -1,5 +1,6 @@
 import { bookService } from "../services/book.service.js"
 import { utilService } from "../services/util.service.js"
+import { showSuccessMsg } from "../services/event-bus.service.js"
 
 const { useState, useEffect } = React
 const { useNavigate, useParams } = ReactRouterDOM
@@ -46,7 +47,12 @@ export function BookEdit() {
     function onSaveBook(event) {
         event.preventDefault()
         bookService.save(bookToEdit)
-            .then(() => navigate('/book'))
+            .then(() => {
+                const successMsg = bookId ? `"${bookToEdit.title}" Has Been Edited Successfuly!` 
+                                            : `"${bookToEdit.title}" Has Been Added Successfuly!`
+                showSuccessMsg(successMsg)
+                navigate('/book')
+            })
     }
 
     function onBack() {
@@ -90,7 +96,7 @@ export function BookEdit() {
 
             
             
-            <div className="pop-up">
+            <section className="pop-up">
                 <form onSubmit={onSaveBook}>
 
                     <h1 className="edit-add-title">{bookId ? 'Edit' : 'Add'} Book</h1>
@@ -192,7 +198,7 @@ export function BookEdit() {
                     <button className="save-button">Save</button>
                 </form>
                 <img src={coverImage}/>
-            </div>
+            </section>
             
         </section>
     )

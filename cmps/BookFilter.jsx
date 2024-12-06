@@ -58,7 +58,7 @@ export function BookFilter({filter, onSetFilter, maxPrice}){
     const categories = bookService.getCategories()
 
     return(
-        <div className="book-filter">
+        <section className="book-filter">
             <h1>Book Filter</h1>
             <form onSubmit={onSubmitFilter}> 
 
@@ -208,6 +208,6 @@ export function BookFilter({filter, onSetFilter, maxPrice}){
 
                 {/* <button>Submit</button> */}
             </form>
-        </div>
+        </section>
     )
 }

@@ -11,6 +11,7 @@
     width: 150vw;
     position: absolute;
     bottom: -150px;
+    left: -150px;
 }
 
 .home .title{
@@ -24,10 +25,11 @@
 .home .welcome{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 25px;
     padding: 30px;
     border-radius: 10px;
-    /* background-color: rgba(255, 255, 255, 0.6); */
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 150%;
     width: 40vw;
 }
 

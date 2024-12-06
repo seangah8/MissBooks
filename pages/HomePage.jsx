@@ -15,7 +15,7 @@ export function HomePage() {
         </video>
             
 
-            <div className="welcome">
+            <section className="welcome">
 
                 <h2 className="title">MissBooks</h2>
 
@@ -25,9 +25,9 @@ export function HomePage() {
                 Your next great read is just a click away:</p>
 
                 <Link className="link" to="/book">Start Exploring Now!</Link>
-            </div>
+            </section>
 
-            <div className="decoration">
+            <section className="decoration">
 
                 <div className="dec-1">
                     <p>hello</p>
@@ -48,7 +48,7 @@ export function HomePage() {
                 <div className="dec-5">
                     <p>hello</p>
                 </div>
-            </div>
+            </section>
 
            
 

@@ -1,6 +1,7 @@
 import { bookService } from '../services/book.service.js'
 import { BookList } from '../cmps/BookList.jsx'
 import { BookFilter } from '../cmps/BookFilter.jsx'
+import { showSuccessMsg } from "../services/event-bus.service.js"
 
 const { useState, useEffect } = React
 const { Link } = ReactRouterDOM
@@ -17,9 +18,11 @@ export function BookIndex(){
 
     function loadBooks() {
         bookService.query(filter)
-        .then(setBookList)
+        .then(books => {
+            setBookList(books)
+        })
         .catch(err => {
-            console.log('Problems getting books:', err)
+            console.log('Failed Loading Books: ',err)
         })
         loadMaxPrice()    
     }
@@ -33,7 +36,13 @@ export function BookIndex(){
     }
 
     function onRemoveBook(bookId){
-        bookService.remove(bookId).then(()=>loadBooks())
+        bookService.get(bookId).then(book=>{
+            bookService.remove(bookId).then(()=>{
+                showSuccessMsg(`Revomed "${book.title}" Successfuly!`)
+                loadBooks()
+            })
+        })
+        
     }
 
     if(!bookList || !filter){
@@ -41,10 +50,10 @@ export function BookIndex(){
     }
 
     return(
-        <div className='book-index'>
+        <section className='book-index'>
             <BookFilter filter={filter} onSetFilter={onSetFilter} maxPrice={maxBookPrice}/>
             <button className='add-book-button'><Link to="/book/edit">Add Book +</Link></button>
             <BookList books={bookList} onRemoveBook={onRemoveBook}/>
-        </div>
+        </section>
     )
 }

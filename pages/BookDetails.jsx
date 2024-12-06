@@ -39,8 +39,8 @@ export function BookDetails(){
     return (
         <section className="book-details">
             <button className="back-button" onClick={onBack}>{`« Back`}</button>
-            <div className="pop-up">
-                <div className="details">
+            <section className="pop-up">
+                <section className="details">
                     <div className="header">
                         <h1 className="title">{book.title}</h1>
                         <h1 className="author"> author: {book.author}</h1>
@@ -49,11 +49,11 @@ export function BookDetails(){
                     <LongText txt={book.description}/>
                     <h1 className="price">Price: {book.listPrice.amount +'₪'}</h1>
                     <h1 className="on-sale">{book.listPrice.isOnSale? 'On Sale!':''}</h1>
-                </div>
+                </section>
 
                 <img src={book.coverImage}/>
 
-            </div>
+            </section>
             
 
             

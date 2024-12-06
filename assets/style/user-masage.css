@@ -1,0 +1,39 @@
+
+
+.user-masagge{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    background-color: var(--red-very-dark);
+    color: var(--brown-very-light);
+    border: solid var(--brown-very-light) 2px;
+    border-radius: 10px;
+
+}
+
+.user-masagge button{
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 25px;
+    height: 25px;
+    border: solid var(--red-very-dark) 2px;
+    border-radius: 50%;
+    background-color: var(--brown-very-light);
+    color: var(--red-very-dark);
+}
+
+.user-masagge button:hover{
+    background-color: var(--brown-light);
+}
+
+.user-masagge h4{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

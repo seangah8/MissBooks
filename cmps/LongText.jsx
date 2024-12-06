@@ -9,12 +9,12 @@ export function LongText({ txt, length=100}) {
     }
 
     return (
-        <div className="long-text">
+        <section className="long-text">
             <p onClick={onToggelReadMore}>
                 {readMore? txt: txt.slice(0,length)}
                 {readMore? '' : <span > ...read more</span>}
             </p>
             
-        </div> 
+        </section> 
     )
 }
