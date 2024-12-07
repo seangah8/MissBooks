@@ -25,7 +25,7 @@ function get(entityType, entityId) {
 // save the new item into the beginning of the list in storage and return the item
 function post(entityType, newEntity) {
     newEntity = {...newEntity}
-    newEntity.id = _makeId()
+    if(!newEntity.id) newEntity.id = _makeId()
     return query(entityType).then(entities => {
         entities.unshift(newEntity)
         _save(entityType, entities)
