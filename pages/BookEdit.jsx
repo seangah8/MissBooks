@@ -48,8 +48,8 @@ export function BookEdit() {
         event.preventDefault()
         bookService.save(bookToEdit)
             .then(() => {
-                const successMsg = bookId ? `"${bookToEdit.title}" Has Been Edited Successfuly!` 
-                                            : `"${bookToEdit.title}" Has Been Added Successfuly!`
+                const successMsg = `"${bookToEdit.title}" Has Been Edited Successfuly!` 
+                                            
                 showSuccessMsg(successMsg)
                 navigate('/book')
             })
@@ -93,13 +93,11 @@ export function BookEdit() {
         <section className="book-edit">
 
             <button className="back-button" onClick={onBack}>« Back</button>
-
-            
             
             <section className="pop-up">
                 <form onSubmit={onSaveBook}>
 
-                    <h1 className="edit-add-title">{bookId ? 'Edit' : 'Add'} Book</h1>
+                    <h1 className="edit-add-title">Edit Book</h1>
 
                     <div>
                         <label htmlFor="title">Title:</label>
