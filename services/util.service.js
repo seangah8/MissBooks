@@ -10,6 +10,7 @@ export const utilService = {
     debounce,
     underInnetObject,
     getTodaysYear,
+    getTruthyValues,
 }
 
 // return random id
@@ -105,3 +106,14 @@ function getTodaysYear(){
     return date.getFullYear()
 }
 
+
+export function getTruthyValues(obj) {
+    const newObj = {}
+    for (const key in obj) {
+        const value = obj[key]
+        if (value || value === 0) {
+            newObj[key] = value
+        }
+    }
+    return newObj
+}

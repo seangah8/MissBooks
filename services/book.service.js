@@ -15,6 +15,7 @@ export const bookService = {
     getCategories,
     getSimpleBookAge,
     getSimplePageAmount,
+    getFilterFromParams,
 }
 
 // For Debug (easy access from console):
@@ -102,6 +103,34 @@ function getDefaultFilter() {
         isDescentReading: false,
         isSeriousReading: false,
         }
+}
+
+function getFilterFromParams(searchParams){
+    const title = searchParams.get('title') || ''
+    const maxAmount = parseInt(searchParams.get('maxAmount')) || Number.MAX_SAFE_INTEGER
+    const onSale = searchParams.get('onSale') ? true : false
+    const category = searchParams.get('category') || 'All'
+    const isNew = searchParams.get('isNew') ? true : false
+    const isModern = searchParams.get('isModern') ? true : false
+    const isVintage = searchParams.get('isVintage') ? true : false
+    const isLightReading = searchParams.get('isLightReading') ? true : false
+    const isDescentReading = searchParams.get('isDescentReading') ? true : false
+    const isSeriousReading = searchParams.get('isSeriousReading') ? true : false
+    
+
+    return {
+        title,
+        maxAmount,
+        onSale,
+        category,
+        isNew,
+        isModern,
+        isVintage,
+        isLightReading,
+        isDescentReading,
+        isSeriousReading
+    }
+
 }
 
 function getEmptyBook(){

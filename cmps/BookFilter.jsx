@@ -110,6 +110,7 @@ export function BookFilter({filter, onSetFilter, maxPrice}){
                         <label htmlFor="is-new">New</label>
                         <input 
                         value={isNew} 
+                        checked={isNew}
                         onChange={handleChange} 
                         type="checkbox" 
                         name="isNew" 
@@ -120,6 +121,7 @@ export function BookFilter({filter, onSetFilter, maxPrice}){
                         <label htmlFor="is-modern">Modern</label>
                         <input 
                         value={isModern} 
+                        checked={isModern}
                         onChange={handleChange} 
                         type="checkbox" 
                         name="isModern" 
@@ -130,6 +132,7 @@ export function BookFilter({filter, onSetFilter, maxPrice}){
                         <label htmlFor="is-vintage">Vintage</label>
                         <input 
                         value={isVintage} 
+                        checked={isVintage}
                         onChange={handleChange} 
                         type="checkbox" 
                         name="isVintage" 
@@ -147,7 +150,8 @@ export function BookFilter({filter, onSetFilter, maxPrice}){
                     <div className="selection">
                         <label htmlFor="is-light-reading">Light</label>
                         <input 
-                        value={isLightReading} 
+                        value={isLightReading}
+                        checked={isLightReading}
                         onChange={handleChange} 
                         type="checkbox" 
                         name="isLightReading" 
@@ -159,6 +163,7 @@ export function BookFilter({filter, onSetFilter, maxPrice}){
                         <label htmlFor="is-descent-reading">Descent</label>
                         <input 
                         value={isDescentReading} 
+                        checked={isDescentReading}
                         onChange={handleChange} 
                         type="checkbox" 
                         name="isDescentReading" 
@@ -169,6 +174,7 @@ export function BookFilter({filter, onSetFilter, maxPrice}){
                         <label htmlFor="is-serious-reading">Serious</label>
                         <input 
                         value={isSeriousReading} 
+                        checked={isSeriousReading}
                         onChange={handleChange} 
                         type="checkbox" 
                         name="isSeriousReading" 
@@ -198,6 +204,7 @@ export function BookFilter({filter, onSetFilter, maxPrice}){
                     <label htmlFor="onSale">On Sale: </label>
                     <input 
                     value={onSale} 
+                    checked={onSale}
                     onChange={handleChange} 
                     type="checkbox" 
                     name="onSale" 
