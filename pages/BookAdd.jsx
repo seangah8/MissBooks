@@ -1,4 +1,5 @@
 import { bookService } from "../services/book.service.js"
+import { googleBookService } from "../services/googleBookService.js"
 
 const { useEffect, useState } = React
 
@@ -10,10 +11,10 @@ export function BookAdd(){
     useEffect(()=>{
         loadBooks()
 
-    }, [bookList])
+    }, [])
 
     async function loadBooks(){
-        let books = await bookService.getDemoBooks()
+        let books = await googleBookService.query()
         books = await bookService.addDoesBookExist(books)
         setBookList(books)
         setLoding(false)
@@ -21,7 +22,13 @@ export function BookAdd(){
 
     async function onAddButton(book){
         await bookService.addGoogleBook(book)
-        book.doesExist = true
+        const updatedList = await bookService.addDoesBookExist(bookList)
+        setBookList(updatedList)
+    }
+
+
+    function onSearchBook(event){
+        event.preventDefault()
     }
 
     if(loading){
@@ -31,20 +38,24 @@ export function BookAdd(){
     return(
         <section className="book-add">
 
-            <ul>
-                {
-                    bookList.map(book => 
-                        <li key={book.id}>
-                            <h2>{book.title}</h2>
-                            <button 
-                                disabled={book.doesExist}
-                                onClick={()=>onAddButton(book)}>+
-                            </button>
-                            {book.doesExist? <p>book alredy been added</p>: ''}
-                        </li>
-                    )
-                }
-            </ul>
+            <form onSubmit={onSearchBook}>
+                <input type="txt"></input>
+                <button>Submit</button>
+                <ul>
+                    {
+                        bookList.map(book => 
+                            <li key={book.id}>
+                                <h2>{book.title}</h2>
+                                <button 
+                                    disabled={book.doesExist}
+                                    onClick={()=>onAddButton(book)}>+
+                                </button>
+                                {book.doesExist? <p>book alredy been added</p>: ''}
+                            </li>
+                        )
+                    }
+                </ul>
+            </form>
             
         </section>
     )

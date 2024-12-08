@@ -11,6 +11,7 @@ export const utilService = {
     underInnetObject,
     getTodaysYear,
     getTruthyValues,
+    convertDateToYear,
 }
 
 // return random id
@@ -116,4 +117,8 @@ export function getTruthyValues(obj) {
         }
     }
     return newObj
+}
+
+function convertDateToYear(dateStr){
+    return dateStr.split("-")[0]
 }

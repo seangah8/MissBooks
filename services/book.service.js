@@ -159,7 +159,8 @@ async function getTopBookPrice(){
 }
 
 function getCategories(){
-    return ['Romance', 'Fantasy', 'Science Fiction', 'Adventure', 'Horror', 'Historical']
+    return  ['Love', 'Fiction', 'Poetry', 'Computers', 'Religion']
+
 }
 
 function getSimpleBookAge(publishedYear){
@@ -186,7 +187,7 @@ function getSimplePageAmount(pageCount){
 }
 
 
-// HardCoded Books TEMPORARY Function!
+// Hard Coded Books TEMPORARY Function!
 function getDemoBooks(){
     const book1 = {
         id: 'id-1',
@@ -234,15 +235,15 @@ function getDemoBooks(){
     return [book1, book2, book3]
 }
 
-async function addDoesBookExist(bookList){
+async function addDoesBookExist(bookList) {
     const storageBooks = await query()
-    bookList.map(book => {
+    const updatedList = bookList.map(book => {
         const exist = storageBooks.some(storageBook => storageBook.id === book.id)
-        book.doesExist = exist
+        return { ...book, doesExist: exist }
     })
-    return bookList
-
+    return updatedList
 }
+
 
 function addGoogleBook(book){
     return storageService.post(BOOK_KEY, book)
@@ -265,7 +266,6 @@ function _createDefultBooks() {
                 description: utilService.makeLorem(100),
                 pageCount: utilService.getRandomIntInclusive(20, 600),
                 category: ctgs[utilService.getRandomIntInclusive(0, ctgs.length - 1)],
-                // add book cover image later
                 listPrice: {
                     amount: utilService.getRandomIntInclusive(20, 300),
                     isOnSale: Math.random() > 0.7

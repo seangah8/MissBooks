@@ -22,7 +22,6 @@ export function BookEdit() {
     }
 
     function handleChange({ target }) {
-        console.log(target)
         let { value, name: field } = target
         switch (target.type) {
             case 'number':
