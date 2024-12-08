@@ -18,7 +18,6 @@ export const bookService = {
     getFilterFromParams,
     getDemoBooks,
     addGoogleBook,
-    addDoesBookExist,
 }
 
 // For Debug (easy access from console):
@@ -233,15 +232,6 @@ function getDemoBooks(){
     }
 
     return [book1, book2, book3]
-}
-
-async function addDoesBookExist(bookList) {
-    const storageBooks = await query()
-    const updatedList = bookList.map(book => {
-        const exist = storageBooks.some(storageBook => storageBook.id === book.id)
-        return { ...book, doesExist: exist }
-    })
-    return updatedList
 }
 
 

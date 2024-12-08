@@ -6,7 +6,7 @@ export const googleBookService = {
 }
 
 
-async function query(txt=''){
+async function query(){
     const booksApiStr = await getBooksApi()
     const bookList = booksApiStr.items.map(apiBook =>
          _convertToFittingObject(apiBook))
@@ -46,7 +46,7 @@ function _convertToFittingObject(apiBookObj){
         listPrice: {amount: utilService.getRandomIntInclusive(20, 300),
                     isOnSale: Math.random() > 0.7},
         coverImage:  apiBookObj.volumeInfo.imageLinks?
-                    apiBookObj.volumeInfo.imageLinks.thumbnail : null,
+                    apiBookObj.volumeInfo.imageLinks.thumbnail : './assets/BooksImages/defult-cover.png',
     }
 
 }

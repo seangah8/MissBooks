@@ -1,58 +1,95 @@
 import { bookService } from "../services/book.service.js"
+import { utilService } from "../services/util.service.js"
 import { googleBookService } from "../services/googleBookService.js"
 
-const { useEffect, useState } = React
+const { useEffect, useState, useRef } = React
 
 export function BookAdd(){
 
-    const [bookList, setBookList] = useState(null)
-    const [loading, setLoding] = useState(true)
+    const [googleBookList, setGoogleBookList] = useState(null)
+    const [missBookList, setMissBookList] = useState(null)
+    const [titleToEdit, setTitleToEdit] = useState('')
+    const [filteredGoogleList, setFilteredGoogleList] = useState(null)
+    // const debouncedFilterListRef = useRef()
 
     useEffect(()=>{
         loadBooks()
-
+        // debouncedFilterListRef.current = utilService.debounce(
+            // () => filterList())
     }, [])
 
-    async function loadBooks(){
-        let books = await googleBookService.query()
-        books = await bookService.addDoesBookExist(books)
-        setBookList(books)
-        setLoding(false)
+    useEffect(()=>{
+        setFilteredGoogleList(googleBookList)
+    },[googleBookList])
+
+
+    useEffect(()=>{
+        // debouncedFilterListRef.current()
+        filterList()
+    },[titleToEdit])
+
+    function loadBooks(){
+        googleBookService.query().then(setGoogleBookList)
+        bookService.query().then(setMissBookList)
     }
 
     async function onAddButton(book){
         await bookService.addGoogleBook(book)
-        const updatedList = await bookService.addDoesBookExist(bookList)
-        setBookList(updatedList)
+        setMissBookList((prevMissBookList) =>
+             [book, ...prevMissBookList])
+    }
+
+    function inMissBookList(bookId){
+        return missBookList.some(book => book.id === bookId)
+    }
+
+    function onChangeTitle({ target }) {
+        setTitleToEdit(target.value)
+    }
+
+    function filterList(){
+        // console.log(googleBookList) //null all the time!
+        if(googleBookList && titleToEdit){
+            const regExp = new RegExp(titleToEdit, 'i')
+            const filteredList = googleBookList.filter(book => regExp.test(book.title))
+            setFilteredGoogleList(filteredList)
+        }
     }
 
 
-    function onSearchBook(event){
-        event.preventDefault()
-    }
-
-    if(loading){
+    if(!filteredGoogleList){
         return <h1>Loading...</h1>
     }
+ 
+    const title = titleToEdit
 
     return(
         <section className="book-add">
 
-            <form onSubmit={onSearchBook}>
-                <input type="txt"></input>
-                <button>Submit</button>
+            <form>
+                <label htmlFor="title">Search Book: </label>
+                <input 
+                value={title} 
+                onChange={onChangeTitle} 
+                type="text" 
+                name="title" 
+                id="title"
+                className="title"/>
+
                 <ul>
                     {
-                        bookList.map(book => 
-                            <li key={book.id}>
+                        filteredGoogleList.map(book => {
+                            const alreadyInList = inMissBookList(book.id)
+
+                            return <li key={book.id}>
                                 <h2>{book.title}</h2>
                                 <button 
-                                    disabled={book.doesExist}
+                                    disabled={alreadyInList}
                                     onClick={()=>onAddButton(book)}>+
                                 </button>
-                                {book.doesExist? <p>book alredy been added</p>: ''}
+                                {alreadyInList? <p>book alredy been added</p>: ''}
                             </li>
-                        )
+                        })
                     }
                 </ul>
             </form>
