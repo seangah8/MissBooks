@@ -3,30 +3,29 @@ import { utilService } from "../services/util.service.js"
 import { googleBookService } from "../services/googleBookService.js"
 
 const { useEffect, useState, useRef } = React
+const { useSearchParams } = ReactRouterDOM
 
 export function BookAdd(){
 
+    const [searchParams, setSearchParams] = useSearchParams()
+
     const [googleBookList, setGoogleBookList] = useState(null)
     const [missBookList, setMissBookList] = useState(null)
-    const [titleToEdit, setTitleToEdit] = useState('')
+    const [titleToEdit, setTitleToEdit] = useState(bookService.getTitleFromParams(searchParams))
     const [filteredGoogleList, setFilteredGoogleList] = useState(null)
     // const debouncedFilterListRef = useRef()
 
-    useEffect(()=>{
+    useEffect(() => {
         loadBooks()
-        // debouncedFilterListRef.current = utilService.debounce(
-            // () => filterList())
     }, [])
 
-    useEffect(()=>{
-        setFilteredGoogleList(googleBookList)
-    },[googleBookList])
+    useEffect(() => {
+        setSearchParams(utilService.getTruthyValues({ title: titleToEdit }))
+    }, [titleToEdit])
 
-
-    useEffect(()=>{
-        // debouncedFilterListRef.current()
+    useEffect(() => {
         filterList()
-    },[titleToEdit])
+    }, [googleBookList, titleToEdit])
 
     function loadBooks(){
         googleBookService.query().then(setGoogleBookList)
@@ -47,12 +46,16 @@ export function BookAdd(){
         setTitleToEdit(target.value)
     }
 
-    function filterList(){
-        // console.log(googleBookList) //null all the time!
-        if(googleBookList && titleToEdit){
-            const regExp = new RegExp(titleToEdit, 'i')
-            const filteredList = googleBookList.filter(book => regExp.test(book.title))
+    function filterList() {
+        if (!googleBookList) return
+
+        if (titleToEdit) {
+            const regExp = new RegExp(titleToEdit, "i");
+            const filteredList = googleBookList.filter((book) =>
+                regExp.test(book.title))
             setFilteredGoogleList(filteredList)
+        } else {
+            setFilteredGoogleList(googleBookList) 
         }
     }
 

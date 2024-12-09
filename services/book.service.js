@@ -17,6 +17,7 @@ export const bookService = {
     getSimplePageAmount,
     getFilterFromParams,
     addGoogleBook,
+    getTitleFromParams,
 }
 
 // For Debug (easy access from console):
@@ -132,6 +133,11 @@ function getFilterFromParams(searchParams){
         isSeriousReading
     }
 
+}
+
+function getTitleFromParams(searchParams){
+    const title = searchParams.get('title') || ''
+    return title
 }
 
 function getEmptyBook(){
