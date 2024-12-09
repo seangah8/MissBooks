@@ -35,7 +35,12 @@ export function BookDetails(){
     }
 
     async function onAddReview(review){
-        const newReview = {id: utilService.makeId(), ...review}
+        const today = new Date()
+        const newReview = {id: utilService.makeId(),
+             date: `${today.getDate()}/
+             ${today.getMonth()+1}/
+             ${today.getFullYear()}`,
+              ...review}
         book.reviews.unshift(newReview)
         const newReviews = book.reviews
         await bookService.save({...book,
