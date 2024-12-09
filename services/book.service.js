@@ -16,7 +16,6 @@ export const bookService = {
     getSimpleBookAge,
     getSimplePageAmount,
     getFilterFromParams,
-    getDemoBooks,
     addGoogleBook,
 }
 
@@ -185,56 +184,6 @@ function getSimplePageAmount(pageCount){
     return 'serious'
 }
 
-
-// Hard Coded Books TEMPORARY Function!
-function getDemoBooks(){
-    const book1 = {
-        id: 'id-1',
-        title: 'title-1',
-        author: 'author-1',
-        publishedYear: 2001,
-        description: 'description-1',
-        pageCount: 100,
-        category: 'Romance',
-        listPrice: {
-            amount: 100,
-            isOnSale: false
-        },
-        coverImage: `./assets/BooksImages/1.jpg`
-    }
-    const book2 = {
-        id: 'id-2',
-        title: 'title-2',
-        author: 'author-2',
-        publishedYear: 2002,
-        description: 'description-2',
-        pageCount: 200,
-        category: 'Fantasy',
-        listPrice: {
-            amount: 200,
-            isOnSale: true
-        },
-        coverImage: `./assets/BooksImages/2.jpg`
-    }
-    const book3 = {
-        id: 'id-3',
-        title: 'title-3',
-        author: 'author-3',
-        publishedYear: 2003,
-        description: 'description-3',
-        pageCount: 300,
-        category: 'Science Fiction',
-        listPrice: {
-            amount: 300,
-            isOnSale: false
-        },
-        coverImage: `./assets/BooksImages/3.jpg`
-    }
-
-    return [book1, book2, book3]
-}
-
-
 function addGoogleBook(book){
     return storageService.post(BOOK_KEY, book)
 }
@@ -260,7 +209,8 @@ function _createDefultBooks() {
                     amount: utilService.getRandomIntInclusive(20, 300),
                     isOnSale: Math.random() > 0.7
                 },
-                coverImage: `./assets/BooksImages/${Math.ceil(Math.random()*20)}.jpg` // temporary
+                coverImage: `./assets/BooksImages/${Math.ceil(Math.random()*20)}.jpg`,
+                reviews: []
             }
             books.push(book)
         }

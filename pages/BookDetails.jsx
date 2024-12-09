@@ -1,5 +1,7 @@
 import { bookService } from "../services/book.service.js"
 import { LongText } from "../cmps/LongText.jsx"
+import { BookReviews } from "../cmps/BookReviews.jsx"
+import { utilService } from "../services/util.service.js"
 
 const { useEffect, useState } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
@@ -32,6 +34,27 @@ export function BookDetails(){
         return `${str.charAt(0).toUpperCase()+ str.slice(1)}`
     }
 
+    async function onAddReview(review){
+        const newReview = {id: utilService.makeId(), ...review}
+        book.reviews.unshift(newReview)
+        const newReviews = book.reviews
+        await bookService.save({...book,
+             reviews: newReviews})
+        loadBook()
+    }
+
+    async function onRemoveReview(reviewId){
+        const filteredReviews = book.reviews.filter(rev =>
+            rev.id !== reviewId)
+
+        await bookService.save({...book,
+             reviews: filteredReviews})
+
+        loadBook()
+
+    }
+
+
     if(!book){
         return <h1>Loding...</h1>
     }
@@ -61,6 +84,11 @@ export function BookDetails(){
                 <button className="previos"><Link to={`/book/${book.prevBookId}`}>«</Link></button>
                 <button className="next"><Link to={`/book/${book.nextBookId}`}>»</Link></button>
             </section>
+
+            <BookReviews bookReviews={book.reviews}
+             onAddReview={onAddReview}
+             onRemoveReview={onRemoveReview}/>
+
         </section>
     )
 }

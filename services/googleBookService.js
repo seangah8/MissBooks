@@ -47,7 +47,8 @@ function _convertToFittingObject(apiBookObj){
                     isOnSale: Math.random() > 0.7},
         coverImage:  apiBookObj.volumeInfo.imageLinks?
                     apiBookObj.volumeInfo.imageLinks.thumbnail : './assets/BooksImages/defult-cover.png',
-    }
+        reviews: [], // adding zero reviews as defult
+    }   
 
 }
 
