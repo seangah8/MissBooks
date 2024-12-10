@@ -5,33 +5,25 @@ export const googleBookService = {
     
 }
 
+async function query(txt){
 
-async function query(){
-    const booksApiStr = await getBooksApi()
+
+    // get book list from google
+    const response = await fetch('https://www.googleapis.com/books/v1/volumes?printType=books&q=effective%20javascript')
+    const booksApiStr = await response.json()
+    
     const bookList = booksApiStr.items.map(apiBook =>
          _convertToFittingObject(apiBook))
 
+    console.log('called api')
+
+    // filter the list
+    if(txt){
+        const regExp = new RegExp(txt, "i");
+        return bookList.filter(book => regExp.test(book.title))
+    }
+
     return bookList
-
-    
-}
-
-function getBooksApi(){
-    console.log('asking api')
-    return new Promise(resolve => {
-        const xhr = new XMLHttpRequest()
-
-        xhr.onreadystatechange = () => {
-            if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-                const answer = JSON.parse(xhr.responseText)
-                resolve(answer)
-            }
-        }
-    
-        xhr.open('GET', 'https://www.googleapis.com/books/v1/volumes?printType=books&q=effective%20javascript', true)
-        xhr.send()
-    })
-
 }
 
 function _convertToFittingObject(apiBookObj){

@@ -4,69 +4,45 @@ import { googleBookService } from "../services/googleBookService.js"
 import { showSuccessMsg } from "../services/event-bus.service.js"
 
 const { useEffect, useState, useRef } = React
-const { useSearchParams } = ReactRouterDOM
 
 export function BookAdd(){
 
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [googleBookList, setGoogleBookList] = useState([])
+    const [missBookList, setMissBookList] = useState([])
 
-    const [googleBookList, setGoogleBookList] = useState(null)
-    const [missBookList, setMissBookList] = useState(null)
-    const [titleToEdit, setTitleToEdit] = useState(bookService.getTitleFromParams(searchParams))
-    const [filteredGoogleList, setFilteredGoogleList] = useState(null)
-    // const debouncedFilterListRef = useRef()
+    const onSetListDebounce = useRef(
+        utilService.debounce(onChangeTitle)).current
 
     useEffect(() => {
         loadBooks()
     }, [])
 
-    useEffect(() => {
-        setSearchParams(utilService.getTruthyValues({ title: titleToEdit }))
-    }, [titleToEdit])
-
-    useEffect(() => {
-        filterList()
-    }, [googleBookList, titleToEdit])
-
     function loadBooks(){
-        googleBookService.query().then(setGoogleBookList)
         bookService.query().then(setMissBookList)
+        googleBookService.query().then(setGoogleBookList)
     }
 
-    async function onAddButton(book){
-        await bookService.addGoogleBook(book)
-        await setMissBookList((prevMissBookList) =>
-             [book, ...prevMissBookList])
-        showSuccessMsg(`"${book.title}" Was Successfuly Added!`)
+    async function onAddButton(event, gbook) {
+        event.preventDefault()
+        await bookService.addGoogleBook(gbook)
+        setMissBookList(prevList => [gbook, ...prevList])
+        showSuccessMsg(`"${gbook.title}" Was Successfully Added!`)
     }
 
-    function inMissBookList(bookId){
+    function inMissBookList(bookId) {
         return missBookList.some(book => book.id === bookId)
     }
 
     function onChangeTitle({ target }) {
-        setTitleToEdit(target.value)
-    }
-
-    function filterList() {
-        if (!googleBookList) return
-
-        if (titleToEdit) {
-            const regExp = new RegExp(titleToEdit, "i");
-            const filteredList = googleBookList.filter((book) =>
-                regExp.test(book.title))
-            setFilteredGoogleList(filteredList)
-        } else {
-            setFilteredGoogleList(googleBookList) 
-        }
+        googleBookService.query(target.value)
+        .then(setGoogleBookList)
     }
 
 
-    if(!filteredGoogleList){
-        return <h1>Loading...</h1>
-    }
- 
-    const title = titleToEdit
+
+    // if(!googleBookList.length){
+    //     return <h1>Loading...</h1>
+    // }
 
     return(
         <section className="book-add">
@@ -74,23 +50,21 @@ export function BookAdd(){
             <form>
                 <label htmlFor="title">Search Book: </label>
                 <input 
-                value={title} 
-                onChange={onChangeTitle} 
+                onChange={ onSetListDebounce } 
                 type="text" 
-                name="title" 
                 id="title"
                 className="title"/>
 
                 <ul>
                     {
-                        filteredGoogleList.map(book => {
-                            const alreadyInList = inMissBookList(book.id)
+                        googleBookList.map(gbook => {
+                            const alreadyInList = inMissBookList(gbook.id)
 
-                            return <li key={book.id}>
-                                <h2>{book.title}</h2>
+                            return <li key={gbook.id}>
+                                <h2>{gbook.title}</h2>
                                 <button 
                                     disabled={alreadyInList}
-                                    onClick={()=>onAddButton(book)}>+
+                                    onClick={event => onAddButton(event, gbook)}>+
                                 </button>
                                 {alreadyInList? <p>book alredy been added</p>: ''}
                             </li>
