@@ -31,6 +31,7 @@ export function BookReviews({bookReviews, onAddReview, onRemoveReview}) {
 
     const {username, rating, text} = reviewToEdit
 
+
     if(!bookReviews){
         return <h1>Loding...</h1>
     }

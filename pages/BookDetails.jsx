@@ -69,6 +69,8 @@ export function BookDetails(){
         return <h1>Loding...</h1>
     }
 
+    console.log(book)
+
     return (
         <section className="book-details">
             <button className="back-button" onClick={onBack}>{`« Back`}</button>
