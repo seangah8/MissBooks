@@ -1,6 +1,7 @@
 import { bookService } from "../services/book.service.js"
 import { utilService } from "../services/util.service.js"
 import { googleBookService } from "../services/googleBookService.js"
+import { showSuccessMsg } from "../services/event-bus.service.js"
 
 const { useEffect, useState, useRef } = React
 const { useSearchParams } = ReactRouterDOM
@@ -34,8 +35,9 @@ export function BookAdd(){
 
     async function onAddButton(book){
         await bookService.addGoogleBook(book)
-        setMissBookList((prevMissBookList) =>
+        await setMissBookList((prevMissBookList) =>
              [book, ...prevMissBookList])
+        showSuccessMsg(`"${book.title}" Was Successfuly Added!`)
     }
 
     function inMissBookList(bookId){

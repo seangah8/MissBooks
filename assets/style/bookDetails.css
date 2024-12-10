@@ -1,19 +1,23 @@
 
 .book-details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 10fr 4fr;
+    justify-items: center;
     height: 100vh;
     background-color: var(--brown-dark);
     background-image: var(--dots);
 }
 
+.book-details .details-section{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
 .book-details .back-button{
-    cursor: pointer;
-    align-self: self-start;
+    align-self: start;
     margin-top: 20px;
-    margin-left: 40px;
+    cursor: pointer;
     font-size: 30px;
     background-color: transparent;
     border: none;
@@ -25,6 +29,7 @@
 }
 
 .book-details .pop-up{
+    margin-top: -5vh;
     background-color: var(--brown-very-light);
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -41,7 +46,7 @@
 .book-details .pre-next-buttons{
     position:absolute;
     top: 50%;
-    width: 1000px;
+    width: 60vw;
     display: flex;
     justify-content: space-between;
 }
@@ -118,4 +123,149 @@
 .long-text span{
     color: var(--red-dark);
 }
+
+.book-reviews{
+    width: 100%;
+    background-color: var(--brown-light);
+    border-radius: 5px;
+}
+
+.book-reviews form{
+    background-color: var(--brown-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 3px;
+
+}
+.book-reviews form h2{
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: var(--red-very-dark-2);
+
+}
+
+.book-reviews form label{
+    color: var(--red-very-dark-2);
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.book-reviews form .username{
+    background-color: var(--brown-very-light);
+    color: var(--red-very-dark);
+    border: 0px;
+    font-size: 20px;
+    border-radius: 2px;
+}
+
+.book-reviews form textarea{
+    height: 100px;
+    resize: none;
+    overflow-y: auto;
+    background-color: var(--brown-very-light);
+    color: var(--red-very-dark);
+    border-radius: 5px;
+    font-size: 20px;
+
+}
+
+.book-reviews form button{
+    cursor: pointer;
+    align-self: center;
+    width: 40%;
+    background-color: var(--red-very-dark);
+    color: var(--brown-very-light);
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.book-reviews form button:hover{
+    background-color: var(--red-dark);
+}
+
+.book-reviews .no-reviews{
+    margin-left: 20%;
+    font-size: 20px;
+    color: var(--red-very-dark-2);
+}
+
+.book-reviews ul{
+    margin-top: 0px;
+    padding-left: 0px;
+    height: 55vh;
+    overflow-y: auto;
+    padding: 10px;
+
+}
+
+.book-reviews li{
+    margin-top: 0px;
+    list-style: none;
+    padding: 10px;
+    border-top: solid var(--red-very-dark-2) 2px;
+
+
+}
+
+.book-reviews li p{
+    color: var(--red-very-dark-2);
+
+
+}
+
+.book-reviews li .header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-reviews li .header .review-username{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-weight: 600;
+    max-width: 60%;
+}
+
+.book-reviews li .header div{
+    display: flex;
+    gap: 10px;
+
+}
+
+.book-reviews li .header .review-date{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    opacity: 70%;
+}
+
+.book-reviews li .header .review-remove{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    padding:0px;
+    border: none;
+    background-color: transparent;
+    color: var(--red-very-dark);
+}
+
+.book-reviews li .header .review-remove:hover{
+    color: var(--red-dark);
+}
+
+.book-reviews li .rating{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.book-reviews .text{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
 

@@ -1,4 +1,4 @@
-import { utilService } from "../services/util.service.js"
+import { showErrorMsg } from "../services/event-bus.service.js"
 
 const { useState } = React
 
@@ -8,6 +8,10 @@ export function BookReviews({bookReviews, onAddReview, onRemoveReview}) {
 
     function addReview(event){
         event.preventDefault()
+        if(!reviewToEdit.username){
+            showErrorMsg("Must Enter Username!")
+            return
+        }
         onAddReview(reviewToEdit)
         setReviewToEdit(reviewToEditDefult())
     }
@@ -30,24 +34,19 @@ export function BookReviews({bookReviews, onAddReview, onRemoveReview}) {
     return (
         <section className="book-reviews">
             <form onSubmit={addReview}>
+                <h2>Leave Review:</h2>
+                <div>
+                    <label htmlFor="username">User Name: </label>
+                    <input 
+                    onChange={handleChange} 
+                    value={username} 
+                    type="txt" 
+                    name='username' 
+                    className="username"
+                    id='username'/>
+                </div>
 
-            <label htmlFor="username">User: </label>
-                <input 
-                onChange={handleChange} 
-                value={username} 
-                type="txt" 
-                name='username' 
-                id='username'/>
-
-                <label htmlFor="review">Add review: </label>
-                <textarea 
-                onChange={handleChange} 
-                value={text} 
-                type="txt" 
-                name='text' 
-                id='text'/>
-
-<div className="rating">
+                <div className="rating">
                     <label htmlFor="rating">Rating: </label>
                     {[1, 2, 3, 4, 5].map(star => (
                         <span
@@ -58,23 +57,42 @@ export function BookReviews({bookReviews, onAddReview, onRemoveReview}) {
 
                             style={{
                                 color: star <= rating ? "yellow" : "gray",
+                                fontSize: "20px",
+                                cursor: "pointer"
                             }}
                         >★
                         </span>
                     ))}
                 </div>
+
+                <textarea 
+                onChange={handleChange} 
+                value={text} 
+                type="txt" 
+                name='text' 
+                placeholder="Add a review..."
+                id='text'/>
+
+                
                 
                 <button>Submit</button>
             </form>
-
-            <ul>
+            {!bookReviews[0]?<p className="no-reviews">This book yet has reviews..</p>:
+                <ul>
                 {
                     bookReviews.map(review=>{
 
                         return <li key={review.id}>
-                            <p>{review.username}</p>
-                            <p>{review.date}</p>
-                            <p>
+                            <div className="header">
+                                <p className="review-username">{review.username}</p>
+                                <div>
+                                    <p className="review-date">{review.date}</p>
+                                    <button className="review-remove" 
+                                    onClick={()=>onRemoveReview(review.id)}>X</button>
+                                </div>
+                            </div>
+                            
+                            <p className="rating">
                                 {
                                     [1,2,3,4,5].map(star => (
                                         <span key={star}
@@ -84,12 +102,14 @@ export function BookReviews({bookReviews, onAddReview, onRemoveReview}) {
                                     
                                 }
                             </p>
-                            <p>{review.text}</p>
-                            <button onClick={()=>onRemoveReview(review.id)}>X</button>
+                            <p className="text">{review.text}</p>
+                            
                         </li>
                     })
                 }
-            </ul>
+                </ul>
+            }
+            
             
         </section> 
     )
