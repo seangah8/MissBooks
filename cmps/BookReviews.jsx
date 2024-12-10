@@ -77,7 +77,7 @@ export function BookReviews({bookReviews, onAddReview, onRemoveReview}) {
                 
                 <button>Submit</button>
             </form>
-            {!bookReviews[0]?<p className="no-reviews">This book yet has reviews..</p>:
+            {bookReviews && !bookReviews[0]?<p className="no-reviews">This book yet has reviews..</p>:
                 <ul>
                 {
                     bookReviews.map(review=>{
