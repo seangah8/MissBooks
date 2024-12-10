@@ -65,7 +65,7 @@ export function BookDetails(){
     }
 
 
-    if(!book){
+    if(!book.reviews){
         return <h1>Loding...</h1>
     }
 
