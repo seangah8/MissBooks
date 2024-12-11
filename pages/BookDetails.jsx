@@ -72,9 +72,9 @@ export function BookDetails(){
     console.log(book)
 
     return (
-        <section className="book-details">
-            <button className="back-button" onClick={onBack}>{`« Back`}</button>
+        <section className="book-details">    
             <div className="details-section">
+            <button className="back-button" onClick={onBack}>{`« Back`}</button>
                 <section className="pop-up">
                     <section className="details">
                         <div className="header">

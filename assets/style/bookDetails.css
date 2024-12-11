@@ -1,10 +1,10 @@
 
 .book-details{
     display: grid;
-    grid-template-columns: 1fr 10fr 4fr;
+    grid-template-columns: 3fr 1fr;
     justify-items: center;
     height: 100vh;
-    background-color: var(--brown-dark);
+    background-color: var(--brown);
     background-image: var(--dots);
 }
 
@@ -15,8 +15,9 @@
 }
 
 .book-details .back-button{
-    align-self: start;
-    margin-top: 20px;
+    position: absolute;
+    left: 30px;
+    top: 90px; 
     cursor: pointer;
     font-size: 30px;
     background-color: transparent;
@@ -41,6 +42,7 @@
 
 .book-details img{
     width: 100%;
+    border-radius: 5px;
 }
 
 .book-details .pre-next-buttons{
@@ -100,7 +102,7 @@
 
 .book-details .on-sale{
     position: absolute;
-    right: 525px;
+    right: 600px;
     top: 375px;
     color: var(--red-dark);
     font-size: 70px;

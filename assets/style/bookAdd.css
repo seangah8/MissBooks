@@ -1,0 +1,93 @@
+
+.book-add{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--brown);
+    background-image: var(--right-triangle);
+    height: 100vh;
+}
+
+.book-add .back-button{
+    position: absolute;
+    left: 30px;
+    top: 90px; 
+    cursor: pointer;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    color: var(--red-very-dark);
+}
+
+.book-add .back-button:hover{
+    color: var(--red-dark);
+}
+
+
+.book-add form{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.book-add form label{
+    font-size: 25px;
+    margin-right: 10px;
+    color: var(--red-very-dark-2);
+}
+
+.book-add form input{
+    background-color: var(--brown-light);
+    color: var(--red-very-dark);
+    border: 0px;
+    font-size: 25px;
+    border-radius: 2px;
+}
+
+.book-add ul{
+    height: 70vh;
+    width:60vw;
+    overflow-y: auto;
+    list-style: none;
+    background-color: var(--brown-light);
+    padding-left: 0px;
+    border-radius: 5px;
+}
+
+.book-add .gbook{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: solid var(--brown) 1px;
+}
+
+.book-add .gbook:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.book-add .gbook.onlist{
+    cursor:default;
+    opacity: 50%;
+}
+
+.book-add .gbook.onlist:hover{
+    background-color:transparent;
+}
+
+.book-add .gbook img{
+    margin-right: 30px;
+    width: 100px;
+    height: 130px;
+    border-radius: 4px;
+}
+
+.book-add .gbook .text{
+    color: var(--red-very-dark-2);
+}
+
+.book-add .gbook h2{
+    font-size: 30px;
+    font-weight: 100;
+}
+

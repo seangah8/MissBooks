@@ -5,15 +5,15 @@
     align-items: center;
     gap: 20px;
     height: 100vh;
-    background-color: var(--brown-dark);
+    background-color: var(--brown);
     background-image: var(--dots);
 }
 
 .book-edit .back-button{
+    position: absolute;
+    left: 30px;
+    top: 90px; 
     cursor: pointer;
-    align-self: self-start;
-    margin-top: 20px;
-    margin-left: 40px;
     font-size: 30px;
     background-color: transparent;
     border: none;
@@ -25,6 +25,7 @@
 }
 
 .book-edit .pop-up{
+    margin-top: 10vh;
     background-color: var(--brown-very-light);
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -36,6 +37,7 @@
 
 .book-edit img{
     width: 100%;
+    border-radius: 5px;
 }
 
 .book-edit form{

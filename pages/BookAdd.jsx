@@ -4,8 +4,11 @@ import { googleBookService } from "../services/googleBookService.js"
 import { showSuccessMsg } from "../services/event-bus.service.js"
 
 const { useEffect, useState, useRef } = React
+const {  useNavigate } = ReactRouterDOM
 
 export function BookAdd(){
+
+    const navigate = useNavigate()
 
     const [googleBookList, setGoogleBookList] = useState([])
     const [missBookList, setMissBookList] = useState([])
@@ -38,6 +41,10 @@ export function BookAdd(){
         .then(setGoogleBookList)
     }
 
+    function onBack() {
+        navigate('/book')
+    }
+
 
 
     // if(!googleBookList.length){
@@ -47,6 +54,8 @@ export function BookAdd(){
     return(
         <section className="book-add">
 
+            <button className="back-button" onClick={onBack}>{`« Back`}</button>
+
             <form>
                 <label htmlFor="title">Search Book: </label>
                 <input 
@@ -54,24 +63,26 @@ export function BookAdd(){
                 type="text" 
                 id="title"
                 className="title"/>
-
-                <ul>
-                    {
-                        googleBookList.map(gbook => {
-                            const alreadyInList = inMissBookList(gbook.id)
-
-                            return <li key={gbook.id}>
-                                <h2>{gbook.title}</h2>
-                                <button 
-                                    disabled={alreadyInList}
-                                    onClick={event => onAddButton(event, gbook)}>+
-                                </button>
-                                {alreadyInList? <p>book alredy been added</p>: ''}
-                            </li>
-                        })
-                    }
-                </ul>
             </form>
+
+            <ul>
+                {
+                    googleBookList.map(gbook => {
+                        const alreadyInList = inMissBookList(gbook.id)
+
+                        return <li key={gbook.id}
+                        className={alreadyInList?"gbook onlist":"gbook"}
+                        onClick={alreadyInList?  null : (event => onAddButton(event, gbook))}>
+                            
+                            <div className="text">
+                                <h2>{gbook.title}</h2>
+                                {alreadyInList? <p>book alredy been added</p>: ''}
+                            </div>
+                            <img src={gbook.coverImage}/>
+                        </li>
+                    })
+                }
+            </ul>
             
         </section>
     )
