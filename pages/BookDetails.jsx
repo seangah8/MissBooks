@@ -74,7 +74,7 @@ export function BookDetails(){
     return (
         <section className="book-details">    
             <div className="details-section">
-            <button className="back-button" onClick={onBack}>{`« Back`}</button>
+            <button className="back-button" onClick={onBack}>⬅</button>
                 <section className="pop-up">
                     <section className="details">
                         <div className="header">

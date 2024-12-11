@@ -91,7 +91,7 @@ export function BookEdit() {
     return (
         <section className="book-edit">
 
-            <button className="back-button" onClick={onBack}>« Back</button>
+            <button className="back-button" onClick={onBack}>⬅</button>
             
             <section className="pop-up">
                 <form onSubmit={onSaveBook}>

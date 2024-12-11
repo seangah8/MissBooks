@@ -46,15 +46,11 @@ export function BookAdd(){
     }
 
 
-
-    // if(!googleBookList.length){
-    //     return <h1>Loading...</h1>
-    // }
-
     return(
         <section className="book-add">
 
-            <button className="back-button" onClick={onBack}>{`« Back`}</button>
+            <button className="back-button" onClick={onBack}>
+                ⬅</button>
 
             <form>
                 <label htmlFor="title">Search Book: </label>

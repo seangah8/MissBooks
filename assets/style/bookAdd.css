@@ -10,10 +10,10 @@
 
 .book-add .back-button{
     position: absolute;
-    left: 30px;
-    top: 90px; 
+    left: 50px;
+    top: 60px; 
     cursor: pointer;
-    font-size: 30px;
+    font-size: 90px;
     background-color: transparent;
     border: none;
     color: var(--red-very-dark);
