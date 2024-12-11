@@ -27,26 +27,36 @@ export function HomePage() {
                 <Link className="link" to="/book">Start Exploring Now!</Link>
             </section>
 
-            <section className="decoration">
+            <div className="fading"></div>
 
-                <div className="dec-1">
-                    <p>hello</p>
+            <section className="extras">         
+
+                <div className="extra-title">
+                    <h1>BOOKS IGNITE ENDLESS CURIOSITY</h1>
                 </div>
 
-                <div className="dec-2">
-                    <p>hello</p>
+                <div className="extra-image">
+                    <img src="https://www.goodnet.org/photos/281x197/37822_hd.jpg"/>
                 </div>
 
-                <div className="dec-3">
-                    <p>hello</p>
-                </div>
-
-                <div className="dec-4">
-                    <p>hello</p>
-                </div>
-
-                <div className="dec-5">
-                    <p>hello</p>
+                <div className="extra-paragraph">
+                    <p>Reading books is a gateway to endless possibilities.
+                    Each page invites you into a world of imagination,
+                    adventure, and knowledge. Whether you're seeking to
+                    escape into thrilling stories or expand your
+                    understanding of the world, books are the perfect
+                    companions. They inspire creativity, spark curiosity,
+                    and nurture the soul. Through reading, we connect
+                    with ideas, cultures, and emotions that transcend
+                    time and place. Every book has the power to teach,
+                    heal, and transform, offering wisdom and joy with every
+                    turn of the page. In the quiet moments spent reading,
+                    we discover more about ourselves and the world around us.
+                    A library is more than a collection of books; its
+                    a treasure trove of dreams waiting to be explored.
+                    Step inside, find a cozy corner, and let a book
+                    take you on an unforgettable journey.
+                    Your next adventure is just a story away!</p>
                 </div>
             </section>
 

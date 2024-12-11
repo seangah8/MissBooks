@@ -29,7 +29,7 @@
     padding: 30px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.3);
-    height: 150%;
+    height: 190%;
     width: 40vw;
 }
 
@@ -55,68 +55,65 @@
     background-color: var(--brown-very-light);
 }
 
-.home .decoration{
-    background-color: var(--brown);
-    margin-top: 200px;
+.home .fading{
+    position: relative;
+    top: 40vh;
+    width: 100%;
+    height: 30vh;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--brown-very-dark-3));
+}
+
+.home .extras{
+    background-color: var(--brown-very-dark-3);
+    margin-top: 18vw;
     width: 100vw;
     height: 100vw;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-}
-
-.home .decoration .dec-1{
-    grid-area: 1 / 4 / span 2 / span 1;
-}
-
-.home .decoration .dec-2{
-    grid-area: 2 / 1 /  span 1 / span 1;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
 }
 
 
-.home .decoration .dec-3{
-    grid-area: 3 / 2 / span 1 / span 1;
-}
 
-.home .decoration .dec-4{
-    grid-area: 4 / -3 / span 1 / span 2;
-}
-
-.home .decoration .dec-5{
-    grid-area: -3 / 3 / span 2 / span 1;
-}
-
-.home .decoration .dec-1,
-.home .decoration .dec-2,
-.home .decoration .dec-5{
-    background-color: var(--brown-very-dark-3);
-}
-
-.home .decoration .dec-3,
-.home .decoration .dec-4{
-    background-color: var(--red-very-dark-2);
-}
-
-.home .decoration .dec-1,
-.home .decoration .dec-2,
-.home .decoration .dec-3,
-.home .decoration .dec-4,
-.home .decoration .dec-5{
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+.home .extras .extra-title{
+    grid-area: 2 / 6 / span 4 / span 6;
+    display: grid;
     align-items: center;
-    padding: 5px;
+    justify-items: center;
+    border: solid var(--brown-light) 10px;
+    padding: 20px;
+    padding-left: 12vw;
+    z-index: 1;
 }
 
-.home .decoration .dec-1 p,
-.home .decoration .dec-2 p,
-.home .decoration .dec-3 p,
-.home .decoration .dec-4 p,
-.home .decoration .dec-5 p{
-    font-size: 30px;
-    color: var(--brown-very-light);
+.home .extras .extra-title h1{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: var(--brown-light);
+    font-size: 80px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.home .extras .extra-image{
+    grid-area: 4 / 1 /  span 4 / span 6;
+}
+
+.home .extras .extra-image img{
+    height: 100%;
+    width: 100%;
+    transform: scaleX(-1)
+}
+
+.home .extras .extra-paragraph{
+    grid-area: 6 / 7 / span 2 / span 4;
+    padding-left: 60px;
+    padding-top: 30px;
+}
+
+.home .extras .extra-paragraph p{
+    font-size: 22px;
+    color: var(--brown-light);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 
