@@ -8,6 +8,7 @@
 @import url('./homePage.css');
 @import url('./bookAdd.css');
 @import url('./user-masage.css');
+@import url('./aboutUs.css');
 
 :root{
     --defult-font: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
