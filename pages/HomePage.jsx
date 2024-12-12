@@ -17,7 +17,7 @@ export function HomePage() {
 
             <section className="welcome">
 
-                <h2 className="title">MissBooks</h2>
+                <h2 className="title">Miss<span>Books</span></h2>
 
                 <p className="paragraph">Welcome to MissBooks, where every book is
                 a new adventure! From thrilling mysteries to timeless classics,

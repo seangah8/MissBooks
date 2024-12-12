@@ -26,6 +26,10 @@ body.scrolled-to-top .home{
     color: white;
 }
 
+.home .title span{
+    color: var(--red-very-dark);
+}
+
 .home .welcome{
     display: flex;
     flex-direction: column;
@@ -72,7 +76,7 @@ body.scrolled-to-top .home{
     height: 100vw;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-rows: repeat(11, 1fr);
 }
 
 

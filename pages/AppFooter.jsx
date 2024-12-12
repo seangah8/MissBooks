@@ -10,10 +10,10 @@ export function AppFooter() {
 
             <div className="icons">
                 <i className="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-tiktok"></i>
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-tiktok"></i>
+                <i className="fa-brands fa-linkedin"></i>
             </div>
         </footer>
     )
