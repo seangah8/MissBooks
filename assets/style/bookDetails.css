@@ -130,7 +130,6 @@
 .book-reviews{
     width: 100%;
     background-color: var(--brown-light);
-    border-radius: 5px;
 }
 
 .book-reviews form{
