@@ -1,8 +1,8 @@
 
 
 .about-us{
-    height: 100vh;
-    overflow-y: auto;
+    margin-top: 60px;
+    overflow: hidden;
 }
 
 .about-us-grid{

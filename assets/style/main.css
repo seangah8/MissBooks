@@ -8,6 +8,7 @@
 @import url('./homePage.css');
 @import url('./bookAdd.css');
 @import url('./aboutUs.css');
+@import url('./footer.css');
 @import url('./user-masage.css');
 
 
@@ -16,13 +17,17 @@
 }
 
 body{
-    overflow: hidden;
+    
     background-color: var(--brown);
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin:0px;
     font-family: var(--defult-font);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
+/* body::-webkit-scrollbar {
+    display: none;
+  } */
 
 input, textarea, select, button {
     font-family: var(--defult-font);

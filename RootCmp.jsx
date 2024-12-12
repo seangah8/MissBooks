@@ -5,6 +5,7 @@ import { BookDetails } from "./pages/BookDetails.jsx"
 import { BookEdit } from "./pages/BookEdit.jsx"
 import { BookAdd } from "./pages/BookAdd.jsx"
 import { AboutUs } from "./pages/AboutUs.jsx"
+import { AppFooter } from "./pages/AppFooter.jsx"
 import { NotFound } from "./pages/NotFound.jsx"
 import { UserMassage } from "./cmps/UserMassage.jsx"
 
@@ -31,6 +32,7 @@ export function RootCmp() {
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
+                <AppFooter/>
                 <UserMassage/>
             </section>
         </Router>

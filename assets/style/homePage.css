@@ -2,7 +2,11 @@
 .home{
     display: grid;
     grid-template-rows: 1fr auto;
-    height: 100vh;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+body.scrolled-to-top .home{
     overflow-y: auto;
 }
 
@@ -56,7 +60,7 @@
 }
 
 .home .fading{
-    margin-top: 30vh;
+    margin-top: 10vh;
     width: 100%;
     height: 30vh;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--brown-very-dark-3));
