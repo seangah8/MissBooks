@@ -1,7 +1,44 @@
 .app-footer{
     bottom:0px;
     background-color: var(--brown-light);
-    height: 20vh;
+    height: 15vh;
     margin-top: 0px;
     margin-bottom: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--brown-very-dark);
+}
+
+.app-footer .text{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.app-footer .text h3{
+    font-size: 20px ;
+    margin-left: 60px;
+}
+
+.app-footer .text p{
+    font-size: 15px;
+}
+
+.app-footer .icons{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-right: 120px;
+}
+
+.app-footer .fa-brands{
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.app-footer .fa-brands:hover{
+    color: var(--red-very-dark);
 }
